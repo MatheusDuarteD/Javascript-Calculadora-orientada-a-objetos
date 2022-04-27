@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <main>
+      <div class="body-wrapper">
+        <div class="calculator-wrapper">
+          <div class="history-modal no-display"></div>
+          <div class="history-element-wrapper no-display">
+            <button
+              class="back-button"
+              onclick="interface.hideHistoryElement()"
+            >
+              <img src="./assets/img/arrow_back.svg" alt="seta de voltar" />
+            </button>
+            <div class="history-element"></div>
+          </div>
+
+          <div class="output-wrapper">
+            <div
+              class="history-button-wrapper"
+              onclick="interface.showHistoryElement()"
+            >
+              <button class="history-button" onclick="">
+                <img src="./assets/img/history.svg" alt="history button" />
+              </button>
+            </div>
+
+            <div class="operation-info-wrapper">
+              <p class="no-visibility operation-info"></p>
+            </div>
+
+            <form>
+              <div class="negative-indicator">
+                <img
+                  src="./assets/img/minus.svg"
+                  class="negative-indicator-image no-visibility"
+                  alt=""
+                />
+              </div>
+              <input class="calculator-input" type="text" step="any" readonly />
+            </form>
+            <p>Insira a operação utilizando os botões abaixo</p>
+          </div>
+          <div class="input-wrapper">
+            <div class="number-wrapper">
+              <button class="number" onclick="interface.addElementToInput('7')">
+                7
+              </button>
+              <button class="number" onclick="interface.addElementToInput('8')">
+                8
+              </button>
+              <button class="number" onclick="interface.addElementToInput('9')">
+                9
+              </button>
+              <button class="number" onclick="interface.addElementToInput('4')">
+                4
+              </button>
+              <button class="number" onclick="interface.addElementToInput('5')">
+                5
+              </button>
+              <button class="number" onclick="interface.addElementToInput('6')">
+                6
+              </button>
+
+              <button class="number" onclick="interface.addElementToInput('1')">
+                1
+              </button>
+              <button class="number" onclick="interface.addElementToInput('2')">
+                2
+              </button>
+              <button class="number" onclick="interface.addElementToInput('3')">
+                3
+              </button>
+              <button
+                class="number decimal-indicator"
+                onclick="interface.addElementToInput('.')"
+              >
+                .
+              </button>
+              <button class="number" onclick="interface.addElementToInput('0')">
+                0
+              </button>
+              <button
+                class="number"
+                onclick="interface.changeNumberSignal();
+              if(!controller.getIsNegative){
+                interface.removeNegativeIndicator()
+              } 
+              else{
+                interface.addNegativeIndicator()
+                }"
+              >
+                +/-
+              </button>
+            </div>
+            <div class="operation-wrapper">
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'sum'; 
+                interface.setNewNumber(); 
+                interface.changeOperationText()"
+              >
+                Sum
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'subtract';
+                interface.setNewNumber();
+                interface.changeOperationText()"
+              >
+                Subtract
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'multiply';
+                interface.setNewNumber();
+                interface.changeOperationText()"
+              >
+                Multiply
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'divide';
+                interface.setNewNumber();
+                interface.changeOperationText()"
+              >
+                Divide
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'square';
+                interface.setNewNumber(); 
+                interface.processResult(); 
+                interface.changeOperationText(); 
+                interface.changeOperationHistory(); 
+                interface.createNewHistoryDataElement()"
+              >
+                Square
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'cube';
+                
+                interface.setNewNumber(); 
+                interface.processResult(); 
+                interface.changeOperationText(); 
+                interface.changeOperationHistory();
+                interface.createNewHistoryDataElement()"
+              >
+                Cube
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'squareRoot';
+                interface.setNewNumber(); 
+                interface.processResult(); 
+                interface.changeOperationText(); 
+                interface.changeOperationHistory();
+                interface.createNewHistoryDataElement()"
+              >
+                Square Root
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'cubicRoot';
+                interface.setNewNumber(); 
+                interface.processResult(); 
+                interface.changeOperationText(); 
+                interface.changeOperationHistory();
+                interface.createNewHistoryDataElement()"
+              >
+                Cubic Root
+              </button>
+              <button
+                class="operation"
+                onclick="controller.setOperation = 'log';
+                interface.setNewNumber(); 
+                interface.processResult(); 
+                interface.changeOperationText(); 
+                interface.changeOperationHistory();
+                interface.createNewHistoryDataElement()"
+              >
+                Log
+              </button>
+              <button
+                class="operation equals"
+                onclick="
+                interface.setNewNumber();
+                interface.processResult(); 
+                interface.changeOperationText(); 
+                interface.changeOperationHistory();
+                interface.createNewHistoryDataElement()"
+              >
+                =
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- <script src="./index.js" type="module"></script> -->
+    <script src="./calculadora.js"></script>
+  </body>
+</html>
